@@ -13,13 +13,19 @@ namespace MoreShipUpgrades.UI.Application
 {
     internal class ContractApplication : InteractiveTerminalApplication
     {
-        const string MAIN_MENU_TITLE = "Contracts";
-        const string CONTRACT_INFO_CURSOR_ELEMENT = "Contract Info";
-        const string PICK_CONTRACT_CURSOR_ELEMENT = "Pick a Contract";
-        const string CURRENT_CONTRACT_CURSOR_ELEMENT = "Current Contract";
+        const string MAIN_MENU_TITLE = "合同 (Contract)";
+        const string CONTRACT_INFO_CURSOR_ELEMENT = "合同列表";
+        const string PICK_CONTRACT_CURSOR_ELEMENT = "签署合同";
+        const string CURRENT_CONTRACT_CURSOR_ELEMENT = "已签署的合同";
 
-        const string RANDOM_MOON_CURSOR_ELEMENT = "Random Moon";
-        const string SPECIFIED_MOON_CURSOR_ELEMENT = "Specified Moon";
+        const string CONTRACT_MAIN_PAGE_PROMPT = "请选择你想要进行的操作";
+        const string CONTRACT_LIST_PAGE_PROMPT = "请选择你想要了解的合同列表";
+        const string CONTRACT_SIGN_PAGE_PROMPT = "请选择你想要签署的合同类型";
+
+        const string CONTRACT_PAGE_OPTION_PROMPT = "[W/S] 上下移动选项 [Enter] 确认选项";
+
+        const string RANDOM_MOON_CURSOR_ELEMENT = "随机星球";
+        const string SPECIFIED_MOON_CURSOR_ELEMENT = "指定星球";
         static readonly string[] MAIN_MENU_CURSOR_ELEMENTS = [CONTRACT_INFO_CURSOR_ELEMENT, PICK_CONTRACT_CURSOR_ELEMENT, CURRENT_CONTRACT_CURSOR_ELEMENT];
 
         IScreen mainScreen;
@@ -54,8 +60,8 @@ namespace MoreShipUpgrades.UI.Application
             menu = CursorMenu.Create(startingCursorIndex: 0, elements: cursorElements);
             textElements =
                 [
-                    TextElement.Create("Select a prompt to execute contract related actions."),
-                    TextElement.Create(" "),
+                    TextElement.Create(CONTRACT_MAIN_PAGE_PROMPT + "\n" + CONTRACT_PAGE_OPTION_PROMPT ),
+                    //TextElement.Create(" "),
                     menu,
                 ];
             screen = BoxedScreen.Create(title: MAIN_MENU_TITLE, elements: textElements);
@@ -85,7 +91,7 @@ namespace MoreShipUpgrades.UI.Application
                     );
             }
             cursorElements[CommandParser.contractInfos.Count] = CursorElement.Create(
-                    name: "Back",
+                    name: "返回",
                     description: string.Empty,
                     action: () => SwitchScreen(previousScreen, previousCursorMenu, true),
                     active: (_) => true,
@@ -94,8 +100,8 @@ namespace MoreShipUpgrades.UI.Application
             menu = CursorMenu.Create(startingCursorIndex: 0, elements: cursorElements);
             textElements =
                 [
-                    TextElement.Create("Select a prompt to know the information of the contract from."),
-                    TextElement.Create(" "),
+                    TextElement.Create(CONTRACT_LIST_PAGE_PROMPT + "\n" + CONTRACT_PAGE_OPTION_PROMPT),
+                    //TextElement.Create(" "),
                     menu,
                 ];
             screen = BoxedScreen.Create(title: MAIN_MENU_TITLE, elements: textElements);
@@ -112,7 +118,7 @@ namespace MoreShipUpgrades.UI.Application
             CursorElement[] cursorElements =
             [
                 CursorElement.Create(
-                        name: "Back",
+                        name: "返回",
                         description: string.Empty,
                         action: () => SwitchScreen(previousScreen, previousCursorMenu, true),
                         active: (_) => true,
@@ -123,7 +129,7 @@ namespace MoreShipUpgrades.UI.Application
             textElements =
                 [
                     TextElement.Create(information),
-                    TextElement.Create(" "),
+                    //TextElement.Create(" "),
                     menu,
                 ];
             screen = BoxedScreen.Create(title: contractType, elements: textElements);
@@ -137,7 +143,7 @@ namespace MoreShipUpgrades.UI.Application
             CursorMenu previousCursorMenu = currentCursorMenu;
             if (ContractManager.Instance.contractType != "None")
             {
-                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "You still have an ongoing contract to finish.");
+                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "你目前有一个正在进行的合同需要完成.");
                 return;
             }
             IScreen screen;
@@ -160,7 +166,7 @@ namespace MoreShipUpgrades.UI.Application
                         selectInactive: true
                         ),
                 CursorElement.Create(
-                        name: "Back",
+                        name: "返回",
                         description: string.Empty,
                         action: () => SwitchScreen(previousScreen, previousCursorMenu, true),
                         active: (_) => true,
@@ -170,8 +176,8 @@ namespace MoreShipUpgrades.UI.Application
             menu = CursorMenu.Create(startingCursorIndex: 0, elements: cursorElements);
             textElements =
                 [
-                    TextElement.Create("Select a prompt to specify where you want to get the contract on."),
-                    TextElement.Create(" "),
+                    TextElement.Create(CONTRACT_SIGN_PAGE_PROMPT + "\n" + CONTRACT_PAGE_OPTION_PROMPT),
+                    //TextElement.Create(" "),
                     menu,
                 ];
             screen = BoxedScreen.Create(title: MAIN_MENU_TITLE, elements: textElements);
@@ -183,7 +189,7 @@ namespace MoreShipUpgrades.UI.Application
             CursorMenu previousCursorMenu = currentCursorMenu;
             if (terminal.groupCredits < UpgradeBus.Instance.PluginConfiguration.CONTRACT_SPECIFY_PRICE)
             {
-                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "Not enough credits to purchase a specified moon contract.");
+                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "你没有足够的金钱来签署指定星球合同.");
                 return;
             }
             SelectableLevel[] levels = StartOfRound.Instance.levels.Where(x => !x.PlanetName.Contains("Gordion")).ToArray();
@@ -207,7 +213,7 @@ namespace MoreShipUpgrades.UI.Application
                     );
             }
             cursorElements[levels.Length] = CursorElement.Create(
-                    name: "Back",
+                    name: "返回",
                     description: string.Empty,
                     action: () => SwitchScreen(previousScreen, previousCursorMenu, true),
                     active: (_) => true,
@@ -216,8 +222,8 @@ namespace MoreShipUpgrades.UI.Application
             menu = CursorMenu.Create(startingCursorIndex: 0, elements: cursorElements);
             textElements =
                 [
-                    TextElement.Create("Select the moon you wish to get a contract on."),
-                    TextElement.Create(" "),
+                    TextElement.Create("请选择你想要签署的星球合同."),
+                    //TextElement.Create(" "),
                     menu,
                 ];
             screen = BoxedScreen.Create(title: MAIN_MENU_TITLE, elements: textElements);
@@ -228,7 +234,7 @@ namespace MoreShipUpgrades.UI.Application
         {
             IScreen previousScreen = currentScreen;
             CursorMenu previousCursorMenu = currentCursorMenu;
-            Confirm(MAIN_MENU_TITLE, $"Do you wish to purchase a contract on {level.PlanetName} for a price of {UpgradeBus.Instance.PluginConfiguration.CONTRACT_SPECIFY_PRICE.Value} Company credits?", () => PurchaseSpecifiedMoonContract(level, () => SwitchScreen(mainScreen, mainCursorMenu, true)), () => SwitchScreen(previousScreen, previousCursorMenu, true));
+            Confirm(MAIN_MENU_TITLE, $"你是否想要以${UpgradeBus.Instance.PluginConfiguration.CONTRACT_SPECIFY_PRICE.Value}的价格签署{level.PlanetName}星球合同?", () => PurchaseSpecifiedMoonContract(level, () => SwitchScreen(mainScreen, mainCursorMenu, true)), () => SwitchScreen(previousScreen, previousCursorMenu, true));
         }
 
         void PurchaseSpecifiedMoonContract(SelectableLevel level, Action backAction)
@@ -247,7 +253,7 @@ namespace MoreShipUpgrades.UI.Application
 
             if (terminal.IsHost || terminal.IsServer) ContractManager.Instance.SyncContractDetailsClientRpc(ContractManager.Instance.contractLevel, i);
             else ContractManager.Instance.ReqSyncContractDetailsServerRpc(ContractManager.Instance.contractLevel, i);
-            ErrorMessage(MAIN_MENU_TITLE, backAction, $"A {ContractManager.Instance.contractType} contract has been accepted on the moon {ContractManager.Instance.contractLevel}! {CommandParser.contractInfos[i]}");
+            ErrorMessage(MAIN_MENU_TITLE, backAction, $"星球{ContractManager.Instance.contractLevel}的合同{ContractManager.Instance.contractType}上被签署! {CommandParser.contractInfos[i]}");
         }
 
         void ConfirmRandomMoonContract()
@@ -256,10 +262,10 @@ namespace MoreShipUpgrades.UI.Application
             CursorMenu previousCursorMenu = currentCursorMenu;
             if (terminal.groupCredits < UpgradeBus.Instance.PluginConfiguration.CONTRACT_PRICE)
             {
-                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "Not enough credits to purchase a randomized moon contract.");
+                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "你没有足够的金钱以签署随机星球合同!");
                 return;
             }
-            Confirm(MAIN_MENU_TITLE, $"Do you wish to purchase a randomized moon contract for a price of {UpgradeBus.Instance.PluginConfiguration.CONTRACT_PRICE.Value} Company credits?", () => PurchaseRandomMoonContract(() => SwitchScreen(mainScreen, mainCursorMenu, true)), () => SwitchScreen(previousScreen, previousCursorMenu, true));
+            Confirm(MAIN_MENU_TITLE, $"你是否想要以${UpgradeBus.Instance.PluginConfiguration.CONTRACT_PRICE.Value}的价格来签署随机星球合同?", () => PurchaseRandomMoonContract(() => SwitchScreen(mainScreen, mainCursorMenu, true)), () => SwitchScreen(previousScreen, previousCursorMenu, true));
         }
 
         void PurchaseRandomMoonContract(Action backAction)
@@ -277,7 +283,7 @@ namespace MoreShipUpgrades.UI.Application
             ContractManager.RandomLevel();
             if (terminal.IsHost || terminal.IsServer) ContractManager.Instance.SyncContractDetailsClientRpc(ContractManager.Instance.contractLevel, i);
             else ContractManager.Instance.ReqSyncContractDetailsServerRpc(ContractManager.Instance.contractLevel, i);
-            ErrorMessage(MAIN_MENU_TITLE, backAction, $"A {ContractManager.Instance.contractType} contract has been accepted on the moon {ContractManager.Instance.contractLevel}! {CommandParser.contractInfos[i]}");
+            ErrorMessage(MAIN_MENU_TITLE, backAction, $"星球{ContractManager.Instance.contractLevel}的{ContractManager.Instance.contractType}合同已被签署! {CommandParser.contractInfos[i]}");
         }
 
         void ShowCurrentContract()
@@ -286,7 +292,7 @@ namespace MoreShipUpgrades.UI.Application
             CursorMenu previousCursorMenu = currentCursorMenu;
             if (ContractManager.Instance.contractType == "None")
             {
-                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "You currently do not have an assigned contract.");
+                ErrorMessage(MAIN_MENU_TITLE, () => SwitchScreen(previousScreen, previousCursorMenu, true), "你目前没有已签署的合同!");
                 return;
             }
             IScreen screen;
@@ -295,14 +301,14 @@ namespace MoreShipUpgrades.UI.Application
             CursorElement[] cursorElements =
             [
                 CursorElement.Create(
-                        name: "Cancel Current Contract",
+                        name: "取消当前合同",
                         description: string.Empty,
                         action: ConfirmCancelContract,
                         active: (_) => true,
                         selectInactive: true
                         ),
                 CursorElement.Create(
-                        name: "Back",
+                        name: "返回",
                         description: string.Empty,
                         action: () => SwitchScreen(previousScreen, previousCursorMenu, true),
                         active: (_) => true,
@@ -313,7 +319,7 @@ namespace MoreShipUpgrades.UI.Application
             textElements =
                 [
                     TextElement.Create(CommandParser.contractInfos[CommandParser.contracts.IndexOf(ContractManager.Instance.contractType)]),
-                    TextElement.Create(" "),
+                    //TextElement.Create(" "),
                     menu,
                 ];
             screen = BoxedScreen.Create(title: ContractManager.Instance.contractType + " - " + ContractManager.Instance.contractLevel, elements: textElements);
@@ -324,7 +330,7 @@ namespace MoreShipUpgrades.UI.Application
         {
             IScreen previousScreen = currentScreen;
             CursorMenu previousCursorMenu = currentCursorMenu;
-            Confirm(MAIN_MENU_TITLE, "Do you wish to cancel the current contract?", () => CancelContract(() => SwitchScreen(mainScreen, mainCursorMenu, true)), () => SwitchScreen(previousScreen, previousCursorMenu, true));
+            Confirm(MAIN_MENU_TITLE, "你想要取消当前的合同吗?", () => CancelContract(() => SwitchScreen(mainScreen, mainCursorMenu, true)), () => SwitchScreen(previousScreen, previousCursorMenu, true));
         }
 
         void CancelContract(Action backAction)

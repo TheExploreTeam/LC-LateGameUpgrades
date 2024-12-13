@@ -23,11 +23,11 @@ namespace MoreShipUpgrades.Misc
         const string LOAD_LGU_COMMAND = "load lgu";
         public static readonly List<string> contracts = [LguConstants.DATA_CONTRACT_NAME, LguConstants.EXTERMINATOR_CONTRACT_NAME, LguConstants.EXTRACTION_CONTRACT_NAME,LguConstants.EXORCISM_CONTRACT_NAME,LguConstants.DEFUSAL_CONTRACT_NAME];
         public static readonly List<string> contractInfos = [
-            "\n\nOur systems have detected an active PC somewhere in the facility.\nFind it, use the bruteforce command on the ship terminal with the devices IP to get login credentials, then use the cd, ls, and mv commands to find the .db file (enter `mv survey.db` in the containing folder).\n\n",
-            "\n\nIt's been reported that the population of hoarder bugs on this moon have skyrocketed and become aggressive. You must destroy their nest at all costs.\n\n",
-            "\n\nCrew number 5339 have reported that one of their operatives was lost on this moon and left behind. You will have to find or bring a medkit to heal and extract the lost operative.\n\n" ,
-            "\n\nUnusual activity in the spirit world has been reported at this facility.\nFind the ritual site to determine what type of demon it is, enter `demon DemonName` in the terminal to get the ritual instructions. Find ritual items and banish the demon.\n\n" ,
-            "\n\nAn unknown party has planted a bomb at an integral point in this facility.\nYou must find the bomb and work together to defuse it.\nUse the `Lookup` command with the bombs serial number to get defusal instructions.\n\n"
+            "\n\n我们的系统检测到设施内某处有一台激活的PC.\n找到它, 在带有设备IP地址的飞船终端上使用\n'bruteforce'命令获取PC的登录凭证, 然后使用'cd', 'ls'和'mv'命令找到'survey.db'文件(在包含\n'survey.db'文件的目录中输入'mv survey.db').\n\n",
+            "\n\n据公司可靠情报, 我们侦测到这颗月球上的囤积虫数量激增\n并极具攻击性. 你必须不惜一切代价摧毁它们的巢穴!\n\n",
+            "\n\n根据公司5339号船员的报告, 我们的一名特工在这颗星球上\n失踪并被被遗弃. 你的软对必须携带急救包在星球上找到并\n治疗他, 然后护送这名失踪的特工抵达公司.\n\n" ,
+            "\n\n据公司可靠情报, 在这个星球的设施中存在超乎寻常的灵异\n事件. 你的团队需要找到发生灵异事件的地点并确定是什么\n类型的恶魔, 然后在飞船终端里输入'demon DemonName'来获取驱魔仪式的详细信息, 找到仪式物品并消\n灭恶魔!\n\n" ,
+            "\n\n据公司可靠情报, 一个身份不明的恐怖组织成员在这个星球\n的设施中放置了一枚C4炸弹, 你的团队必须找到并拆除它!\n 在飞船终端中输入'Lookup'和炸弹序列号来获取拆除指令.\n\n"
         ];
 
         private static TerminalNode DisplayTerminalMessage(string message, bool clearPreviousText = true)

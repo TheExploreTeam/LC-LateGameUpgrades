@@ -41,7 +41,7 @@ namespace MoreShipUpgrades.UI.Cursor
             }
             else
             {
-                sb.Append("Maxed!");
+                sb.Append("已达最高等级!");
             }
             if (!Active(this)) sb.Append(LguConstants.COLOR_FINAL_FORMAT);
             return sb.ToString();

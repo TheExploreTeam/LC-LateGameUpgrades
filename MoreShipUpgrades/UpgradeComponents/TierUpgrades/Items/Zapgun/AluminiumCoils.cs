@@ -11,9 +11,9 @@ namespace MoreShipUpgrades.UpgradeComponents.TierUpgrades.Items.Zapgun
 {
     internal class AluminiumCoils : TierUpgrade, IUpgradeWorldBuilding
     {
-        internal const string UPGRADE_NAME = "Aluminium Coils";
+        internal const string UPGRADE_NAME = "在职培训";
         internal const string DEFAULT_PRICES = "600, 800, 1000";
-        internal const string WORLD_BUILDING_TEXT = "\n\nOn-the-job training package that instructs your crew on how to more safely and efficiently wield the Zap Gun.\n\n";
+        internal const string WORLD_BUILDING_TEXT = "\n\n在职培训的内容将指导您的船员如何更安全和有效地使用\n电击枪.\n\n";
         internal override void Start()
         {
             upgradeName = UPGRADE_NAME;
@@ -78,11 +78,11 @@ namespace MoreShipUpgrades.UpgradeComponents.TierUpgrades.Items.Zapgun
                 return config.ALUMINIUM_COILS_INITIAL_COOLDOWN_DECREASE.Value + (level * config.ALUMINIUM_COILS_INCREMENTAL_COOLDOWN_DECREASE.Value);
             }
             StringBuilder sb = new();
-            sb.Append($"LVL {level} - ${price}: Upgrades to zap gun:\n");
-            sb.Append($"- Increases zap gun's range by {rangeInfo(level - 1) / 13f * 100f:F0}%\n");
-            sb.Append($"- Stun time increased by {stunTimerInfo(level - 1)} seconds\n");
-            sb.Append($"- Decreases the minigame's difficulty by {difficultyInfo(level - 1):F0}%\n");
-            sb.Append($"- Decreases the zap gun's cooldown by {cooldownInfo(level - 1):F0}%\n");
+            sb.Append($"等级{level} - 价格:${price}: 电击枪升级:\n");
+            sb.Append($"- 将电击枪的射程增加{rangeInfo(level - 1) / 13f * 100f:F0}%\n");
+            sb.Append($"- 将电击枪的眩晕时间增加{stunTimerInfo(level - 1)}秒\n");
+            sb.Append($"- 将迷你游戏的难度降低{difficultyInfo(level - 1):F0}%\n");
+            sb.Append($"- 将电击枪的冷却时间缩短{cooldownInfo(level - 1):F0}%\n");
             sb.Append('\n');
             return sb.ToString();
         }

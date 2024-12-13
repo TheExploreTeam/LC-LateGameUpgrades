@@ -1194,9 +1194,9 @@ namespace MoreShipUpgrades.Misc.Util
 
         #region Bargain Connections
 
-        internal const string BARGAIN_CONNECTIONS_ENABLED_KEY = $"启用{BargainConnections.UPGRADE_NAME}升级项";
+        internal const string BARGAIN_CONNECTIONS_ENABLED_KEY = $"Enable {BargainConnections.UPGRADE_NAME} Upgrade";
         internal const bool BARGAIN_CONNECTIONS_ENABLED_DEFAULT = true;
-        internal const string BARGAIN_CONNECTIONS_ENABLED_DESCRIPTION = "升级等级，增加商店中特价商品的数量";
+        internal const string BARGAIN_CONNECTIONS_ENABLED_DESCRIPTION = "Tier upgrade which increases the amount of items that can be on sale in the store";
 
         internal const string BARGAIN_CONNECTIONS_PRICE_KEY = $"Price of {BargainConnections.UPGRADE_NAME}";
         internal const int BARGAIN_CONNECTIONS_PRICE_DEFAULT = 200;
@@ -1711,8 +1711,8 @@ namespace MoreShipUpgrades.Misc.Util
         #region Main Screen
 
         internal const string MAIN_SCREEN_TITLE = "游戏后期升级 - <翻译: 探险小队-梅狸猫>";
-        internal const string MAIN_SCREEN_TOP_TEXT = "请选择您要购买的升级项目:";
-        internal const string MAIN_SCREEN_TOP_TEXT_NO_ENTRIES = "当前没有可购买的升级项.";
+        internal const string MAIN_SCREEN_TOP_TEXT = "请选择您要购买的升级项目：";
+        internal const string MAIN_SCREEN_TOP_TEXT_NO_ENTRIES = "当前没有可购买的升级项。";
 
         internal const string MAIN_SCREEN_INDIVIDUAL_UPGRADES_TEXT = "** 针对船员个人的升级项 **";
         internal const string MAIN_SCREEN_SHARED_UPGRADES_TEXT = "** 针对所有船员的升级项 **";
@@ -1721,9 +1721,9 @@ namespace MoreShipUpgrades.Misc.Util
 
         #region Upgrade Display
 
-        internal const string NOT_ENOUGH_CREDITS = "你没有足够的信用点来购买这个升级项目!";
-        internal const string REACHED_MAX_LEVEL = "你已将这个升级项目升到最高等级!";
-        internal const string PURCHASE_UPGRADE_FORMAT = "您是否想要以{0}积分购买这个升级?";
+        internal const string NOT_ENOUGH_CREDITS = "你没有足够的金钱来购买此升级项目！";
+        internal const string REACHED_MAX_LEVEL = "你已将此升级项升到最高等级！";
+        internal const string PURCHASE_UPGRADE_FORMAT = "您是否想要以${0}购买此升级？";
 
         #endregion
 
@@ -1780,51 +1780,51 @@ namespace MoreShipUpgrades.Misc.Util
 
         #region Terminal Nodes
 
-        internal const string DISCOMBOBULATOR_NOT_ACTIVE = "你没有使用该命令的权限! 需要购买'Discombobulator'!\n\n";
-        internal const string DISCOMBOBULATOR_ON_COOLDOWN_FORMAT = "你可以在{0}秒内再次使用'Discombobulator'. 输入'cooldown'或者'cd'来检查'Discombobulator'的冷却时间.\n\n";
-        internal const string DISCOMBOBULATOR_NO_ENEMIES = "未侦测到被击晕的敌人.\n\n";
-        internal const string DISCOMBULATOR_HIT_ENEMIES = "'Discombobulator'击中{0}敌人.\n\n";
-        internal const string DISCOMBOBULATOR_DISPLAY_COOLDOWN = "你可以在{0}秒内再次使用'Discombobulator'.\n\n";
-        internal const string DISCOMBOBULATOR_READY = "'Discombobulate'已就绪, 请输入'initattack'或'attack'来激活'Discombobulator'.\n\n";
+        internal const string DISCOMBOBULATOR_NOT_ACTIVE = "你没有使用该命令的权限！需要购买混合式振荡器！\n\n";
+        internal const string DISCOMBOBULATOR_ON_COOLDOWN_FORMAT = "你可以在{0}秒后再次使用混合式振荡器。输入“cooldown”或者“cd”来检查混合式振荡器的冷却时间。\n\n";
+        internal const string DISCOMBOBULATOR_NO_ENEMIES = "未侦测到被击晕的敌人！\n\n";
+        internal const string DISCOMBULATOR_HIT_ENEMIES = "混合式振荡器击中{0}敌人！\n\n";
+        internal const string DISCOMBOBULATOR_DISPLAY_COOLDOWN = "你可以在{0}秒后再次使用混合式振荡器！\n\n";
+        internal const string DISCOMBOBULATOR_READY = "混合式振荡器已就绪，请输入“initattack”或“attack”来激活混合式振荡器。\n\n";
 
-        internal const string LGU_SAVE_WIPED = "LGU的保存项已被清除!\n\n";
-        internal const string LGU_SAVE_NOT_FOUND = "未找到LGU的保存项!\n\n";
+        internal const string LGU_SAVE_WIPED = "LGU的保存项已被清除！\n\n";
+        internal const string LGU_SAVE_NOT_FOUND = "未找到LGU的保存项！\n\n";
 
-        internal const string FORCE_CREDITS_SUCCESS_FORMAT = "现在，所有客户端都应具备${0}.\n\n";
-        internal const string FORCE_CREDITS_HOST_ONLY = "只有主机才能这样做!";
-        internal const string FORCE_CREDITS_PARSED_FAIL_FORMAT = "解析数值失败:{0}\n\n";
+        internal const string FORCE_CREDITS_SUCCESS_FORMAT = "所有客户端现在都应该有${0}。\n\n";
+        internal const string FORCE_CREDITS_HOST_ONLY = "只有主机才能这样做！";
+        internal const string FORCE_CREDITS_PARSED_FAIL_FORMAT = "解析数值失败：{0}\n\n";
 
-        internal const string INTERNS_NOT_ENOUGH_CREDITS_FORMAT = "'实习生'需要{0}个信用点, 而你有{1}个信用点.\n";
-        internal const string INTERNS_PLAYER_ALREADY_ALIVE_FORMAT = "{0}还活着, 他们不能被实习生取代!\n\n";
+        internal const string INTERNS_NOT_ENOUGH_CREDITS_FORMAT = "“实习生”需要${0}, 而你有${1}。\n";
+        internal const string INTERNS_PLAYER_ALREADY_ALIVE_FORMAT = "{0}还活着，他们不能被实习生取代！\n\n";
 
-        internal const string LOAD_LGU_NO_NAME = "请输入要复制其升级/保存的用户名. 例如: `load lgu steve`\n";
-        internal const string LOAD_LGU_SUCCESS_FORMAT = "试图用{0}的保存数据覆盖本地保存数据\n5秒后你应该会看到一个弹出窗口...\n.\n";
-        internal const string LOAD_LGU_FAILURE_FORMAT = "未找到用户名{0}. 我们找到了以下用户名:\n{1}\n";
+        internal const string LOAD_LGU_NO_NAME = "输入你想要复制其“升级/保存”的船员的名称。例如：“load lgu 探险小队梅狸猫”。\n";
+        internal const string LOAD_LGU_SUCCESS_FORMAT = "试图用{0}的保存数据覆盖本地保存数据。\n5秒后你应该会看到一个窗口弹出。\n\n";
+        internal const string LOAD_LGU_FAILURE_FORMAT = "未找到名字为：{0}的船员。我们找到了以下船员名：\n{1}\n";
 
-        internal const string UNLOAD_LGU_SUCCESS_FORMAT = "Unwinding {0}\n\n";
+        internal const string UNLOAD_LGU_SUCCESS_FORMAT = "展开：{0}\n\n";
 
-        internal const string SCANNER_LEVEL_REQUIRED = "将'Better Scanner'升级到2级才能使用这个命令\n输入'info better scanner'来检查升级情况.\n\n";
+        internal const string SCANNER_LEVEL_REQUIRED = "将“Better Scanner”升级到2级才能使用此命令！\n输入“info better scanner”来检查升级情况。\n\n";
 
-        internal const string CONTRACT_CANCEL_FAIL = "你必须在签订合同之后才能执行这个命令...\n\n";
-        internal const string CONTRACT_CANCEL_CONFIRM_PROMPT = "输入'CONFIRM'来取消当前签订的合同。已花费的定金不能退还.\n\n";
-        internal const string CONTRACT_FAIL = "由于在配置中已禁用合同，所以现在我们无法提供可签订的合同!\n\n";
+        internal const string CONTRACT_CANCEL_FAIL = "你必须在签订合同之后才能执行此命令！\n\n";
+        internal const string CONTRACT_CANCEL_CONFIRM_PROMPT = "输入'CONFIRM'来取消当前签订的合同。已花费的定金不能被退还！\n\n";
+        internal const string CONTRACT_FAIL = "由于在配置中已禁用合同，所以我们现在无法提供可签订的合同！\n\n";
 
-        internal const string BRUTEFORCE_USAGE = "请输入你要连接的设备的有效地址!\n\n";
+        internal const string BRUTEFORCE_USAGE = "请输入要连接的PC设备的有效地址！\n\n";
 
-        internal const string CONTRACT_CANCEL_CONFIRM_PROMPT_FAIL = "用户输入确认失败! 无效的解除合同请求.\n\n";
-        internal const string CONTRACT_CANCEL_CONFIRM_PROMPT_SUCCESS = "正在解除合同...\n\n";
+        internal const string CONTRACT_CANCEL_CONFIRM_PROMPT_FAIL = "用户输入确认失败！解除合同请求无效！\n\n";
+        internal const string CONTRACT_CANCEL_CONFIRM_PROMPT_SUCCESS = "* 正在解除合同 *\n\n";
 
-        internal const string CONTRACT_SPECIFY_CONFIRM_PROMPT_FAIL = "用户输入确认失败! 指定星球合同请求无效.\n\n";
-        internal const string CONTRACT_SPECIFY_CONFIRM_PROMPT_SUCCESS_FORMAT = "{1}的{0}合同已被接受!{2}";
+        internal const string CONTRACT_SPECIFY_CONFIRM_PROMPT_FAIL = "用户输入确认失败! 指定星球合同请求无效！\n\n";
+        internal const string CONTRACT_SPECIFY_CONFIRM_PROMPT_SUCCESS_FORMAT = "{1}的{0}合同已被接受！{2}";
 
-        internal const string SCRAP_INSURANCE_ALREADY_PURCHASED = "你已经为船上的废料购买了保险.\n\n";
-        internal const string SCRAP_INSURANCE_ONLY_IN_ORBIT = "你只能在轨道上购买保险!\n\n";
-        internal const string SCRAP_INSURANCE_NOT_ENOUGH_CREDITS_FORMAT = "没有足够的信用点来购买废品保险.\n价格:{0}\n当前所拥有的信用点:{1}\n\n";
-        internal const string SCRAP_INSURANCE_SUCCESS = "废料保险已经生效.\n如果在下一次的探险中你的团队全员死亡, 船上的废料将会被保留!\n\n";
+        internal const string SCRAP_INSURANCE_ALREADY_PURCHASED = "你已经为船上的废料购买了保险！\n\n";
+        internal const string SCRAP_INSURANCE_ONLY_IN_ORBIT = "你只能在星球轨道上才能购买保险！\n\n";
+        internal const string SCRAP_INSURANCE_NOT_ENOUGH_CREDITS_FORMAT = "你没有足够的金钱来购买废料保险！\n价格：{0}\n当前所拥有的金钱：{1}\n\n";
+        internal const string SCRAP_INSURANCE_SUCCESS = "废料保险已经生效。\n如果在下一次的探险中你的团队全员死亡，船上的废料将会被保留！\n\n";
 
-        internal const string LOOKUP_NOT_IN_CONTRACT = "您必须在完成'拆弹合同'后才能使用此命令！!\n\n";
-        internal const string LOOKUP_USAGE = "你需要输入炸弹的序列号才能查看更多信息!\n\n";
-        internal const string LOOKUP_CUT_WIRES_FORMAT = "按照下面的顺序剪断电线:\n\n{0}\n\n";
+        internal const string LOOKUP_NOT_IN_CONTRACT = "你必须在签定了拆弹合同后才能使用该命令！\n\n";
+        internal const string LOOKUP_USAGE = "你必须输入炸弹的序列号才能查询更多详情！\n\n";
+        internal const string LOOKUP_CUT_WIRES_FORMAT = "按以下顺序剪断电线：\n\n{0}\n\n";
         #endregion
 
         #region Chat Notifications
@@ -1836,11 +1836,11 @@ namespace MoreShipUpgrades.Misc.Util
 
         #region Contracts
 
-        internal const string DEFUSAL_CONTRACT_NAME = "拆弹专家 (Defusal Contract)";
-        internal const string EXTRACTION_CONTRACT_NAME = "寻人启事 (Extraction Contract)";
-        internal const string DATA_CONTRACT_NAME = "数据回收 (Data Contract)";
-        internal const string EXTERMINATOR_CONTRACT_NAME = "灭虫专家 (Exterminator Contract)";
-        internal const string EXORCISM_CONTRACT_NAME = "驱魔人 (Exorcism Contract)";
+        internal const string DEFUSAL_CONTRACT_NAME = "拆弹专家 (Defusal)";
+        internal const string EXTRACTION_CONTRACT_NAME = "寻人启事 (Extraction)";
+        internal const string DATA_CONTRACT_NAME = "数据回收 (Data)";
+        internal const string EXTERMINATOR_CONTRACT_NAME = "灭虫专家 (Exterminator)";
+        internal const string EXORCISM_CONTRACT_NAME = "驱魔人 (Exorcism)";
 
         #endregion
     }

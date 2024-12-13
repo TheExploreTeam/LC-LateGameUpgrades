@@ -10,7 +10,8 @@
     <FileVersion>1.0.0.0</FileVersion>
     <LangVersion>latest</LangVersion>
 	<NetcodePatcherNoOverwrite>true</NetcodePatcherNoOverwrite>
-	<NetcodePatcherDisableParallel>true</NetcodePatcherDisableParallel> 
+	<NetcodePatcherDisableParallel>true</NetcodePatcherDisableParallel>
+	<Platforms>AnyCPU;x64</Platforms> 
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />

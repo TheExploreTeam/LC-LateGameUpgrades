@@ -13,12 +13,10 @@ namespace MoreShipUpgrades.UpgradeComponents.TierUpgrades.AttributeUpgrades
     {
         internal float alteredWeight = 1f;
         internal static BackMuscles Instance;
-        public const string UPGRADE_NAME = "Back Muscles";
+        public const string UPGRADE_NAME = "背部肌肉";
         public const string PRICES_DEFAULT = "600,700,800";
-        internal const string WORLD_BUILDING_TEXT = "\n\nCompany-issued hydraulic girdles which are only awarded to high-performing {0} who can afford to opt in." +
-            " Highly valued by all employees of The Company for their combination of miraculous health-preserving benefits and artificial, intentionally-implemented scarcity." +
-            " Sardonically called the 'Back Muscles Upgrade' by some. Comes with a user manual, which mostly contains minimalistic ads for girdle maintenance contractors." +
-            " Most of the phone numbers don't work anymore.\n\n";
+        internal const string WORLD_BUILDING_TEXT = "\n\n公司为员工配发的液压腰带, 仅限为公司创造了高绩效和有\n能力的员工个人领取." +
+            " 公司所有的员工都非常珍惜和爱护它! 由于它集神奇的保健功效和人为制造的稀缺性于一身, 所以\n被一些员工诙谐地称为'背部肌肉升级版'. 在液压腰带的上\n面有很多电话号码, 但是大部分电话号码都已失效!\n\n";
 
         public enum UpgradeMode
         {
@@ -119,17 +117,17 @@ namespace MoreShipUpgrades.UpgradeComponents.TierUpgrades.AttributeUpgrades
                     }
                 case UpgradeMode.ReduceCarryInfluence:
                     {
-                        infoFormat = "LVL {0} - ${1} - Reduces the weight's influence on player's running speed by {2}%\n";
+                        infoFormat = "等级{0} - 价格:${1} - 将负重对员工奔跑速度的影响降低{2}%\n";
                         break;
                     }
                 case UpgradeMode.ReduceCarryStrain:
                     {
-                        infoFormat = "LVL {0} - ${1} - Reduces the weight's influence on player's stamina consumption while running by {2}%\n";
+                        infoFormat = "等级{0} - 价格:${1} - 将负重对玩家奔跑时的耐力消耗的影响降低{2}%\n";
                         break;
                     }
                 default:
                     {
-                        infoFormat = "Undefined";
+                        infoFormat = "未定义";
                         break;
                     }
             }

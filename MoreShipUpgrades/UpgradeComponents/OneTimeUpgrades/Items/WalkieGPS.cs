@@ -10,11 +10,8 @@ namespace MoreShipUpgrades.UpgradeComponents.OneTimeUpgrades.Items
 {
     class WalkieGPS : OneTimeUpgrade, IUpgradeWorldBuilding
     {
-        public const string UPGRADE_NAME = "Walkie GPS";
-        internal const string WORLD_BUILDING_TEXT = "\n\nAnother department was in the shipyard at the same time as yours and they swapped you a handwritten guide" +
-            " on jailbreaking the Company-issued walkie-talkies for 5 TZP Inhalers & 2 Pro Flashlights. Using their method," +
-            " you figured out how to get your walkie-talkie to print debug information that's normally hidden from view," +
-            " the two most useful readouts being Magnetically-Determined Local Time and Sattelite-Estimated Relative Location.\n\n";
+        public const string UPGRADE_NAME = "手持式GPS";
+        internal const string WORLD_BUILDING_TEXT = "\n\n在同一时间，你们与另一个部门的同事在公司造船厂用5个\nTZP吸入器和2个专业手电筒交换了一份手写的手持GPS破解\n指南，用于解锁公司配发的手持GPS终端。使用他们记录的方\n法，你找到了如何让手持GPS终端打印出通常不可见的调试信\n息。其中最有用的两个读数是'基于磁场的本地时间显示'和\n'基于卫星估算的相对坐标位置'。\n\n";
         public static WalkieGPS instance;
         bool walkieUIActive;
 
@@ -45,16 +42,16 @@ namespace MoreShipUpgrades.UpgradeComponents.OneTimeUpgrades.Items
             if (!walkieUIActive) return;
 
             Vector3 pos = GameNetworkManager.Instance.localPlayerController.transform.position;
-            x.text = $"X: {pos.x:F1}";
-            y.text = $"Y: {pos.y:F1}";
-            z.text = $"Z: {pos.z:F1}";
+            x.text = $"X坐标: {pos.x:F1}";
+            y.text = $"Y坐标: {pos.y:F1}";
+            z.text = $"Z坐标: {pos.z:F1}";
 
             int num = (int)(TimeOfDay.Instance.normalizedTimeOfDay * (60f * TimeOfDay.Instance.numberOfHours)) + 360;
             int num2 = (int)Mathf.Floor(num / 60f);
-            string amPM = "AM";
+            string amPM = "上午";
             if (num2 > 12)
             {
-                amPM = "PM";
+                amPM = "下午";
             }
             if (num2 > 12)
             {
@@ -81,7 +78,7 @@ namespace MoreShipUpgrades.UpgradeComponents.OneTimeUpgrades.Items
 
         public override string GetDisplayInfo(int price = -1)
         {
-            return $"${price} - Displays your location and time when holding a walkie talkie.\nEspecially useful for fog.";
+            return $"价格:${price} - 当你拿着手持GPS终端时，显示你的位置坐标\n和当前时间。这在大雾这种极端天气下特别有用。";
         }
         public override bool CanInitializeOnStart => GetConfiguration().WALKIE_PRICE.Value <= 0;
         public new static (string, string[]) RegisterScrapToUpgrade()
